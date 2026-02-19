@@ -1,0 +1,33 @@
+<p-card>
+  <div class="flex flex-col w-full gap-4">
+    <p class="text-center font-bold">{{deck.name}}</p>
+
+    <div class="flex flex-row w-full">
+      <div class="flex flex-col w-1/2">
+        <p>Creator: {{deck.user.lastName}}</p>
+        <p>Cards: {{deck.cards.length}}</p>
+      </div>
+      <p-divider layout="vertical"/>
+      <div class="flex flex-col w-1/2">
+        <p>Creation: {{deck.timestamp}}</p>
+      </div>
+    </div>
+
+    <div class="flex flex-row w-full justify-between">
+      <button pButton class="w-1/4">
+        <i class="pi pi-play" pButtonIcon></i>
+        <span pButtonLabel>Play</span>
+      </button>
+
+      <button pButton class="w-1/4">
+        <i class="pi pi-pencil" pButtonIcon></i>
+        <span pButtonLabel>Edit</span>
+      </button>
+
+      <button pButton class="w-1/4">
+        <i class="pi pi-trash" pButtonIcon></i>
+        <span pButtonLabel>Delete</span>
+      </button>
+    </div>
+  </div>
+</p-card>

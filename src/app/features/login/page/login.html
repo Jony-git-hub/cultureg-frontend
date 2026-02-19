@@ -1,0 +1,36 @@
+<main class="flex w-full h-full justify-center items-center">
+  <p-card class="w-1/2 bg-gray-200">
+    <div class="p-8 w-full flex flex-col gap-8">
+      <div class="flex flex-col items-center gap-2">
+        <div class="text-2xl font-semibold leading-tight text-center w-full">
+          Welcome Back
+        </div>
+        <div class="text-center w-full">
+          <span class="leading-normal">Don't have an account?</span>
+          <a class="text-primary font-medium ml-1 cursor-pointer hover:text-primary-emphasis" routerLink="/register">Create today!</a>
+        </div>
+      </div>
+      <div class="flex flex-col gap-6 w-full">
+        <div class="flex flex-col gap-2 w-full">
+          <label for="email1" class="font-medium leading-normal">Email Address</label>
+          <input pInputText id="email1" type="text" placeholder="Email address" class="w-full px-3 py-2 shadow-sm rounded-lg" />
+        </div>
+        <div class="flex flex-col gap-2 w-full">
+          <label for="password1" class="font-medium leading-normal">Password</label>
+          <input pInputText id="password1" type="password" placeholder="Password" class="w-full px-3 py-2 shadow-sm rounded-lg" />
+        </div>
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between w-full gap-3 sm:gap-0">
+          <div class="flex items-center gap-2">
+            <p-checkbox id="rememberMe" [(ngModel)]="remember" [binary]="true"></p-checkbox>
+            <label for="rememberMe" class="leading-normal">Remember me</label>
+          </div>
+          <a class="text-primary font-medium cursor-pointer hover:text-primary-emphasis">Forgot your password?</a>
+        </div>
+      </div>
+      <button pButton class="w-full py-2 rounded-lg flex justify-center items-center gap-2">
+        <i pButtonIcon class="pi pi-user text-base! leading-normal!"></i>
+        <span pButtonLabel>Log In</span>
+      </button>
+    </div>
+  </p-card>
+</main>

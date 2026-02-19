@@ -1,0 +1,85 @@
+<p-card>
+  <p-table
+    [value]="users"
+    [loading]="loading"
+    [paginator]="true"
+    [rows]="5"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [rowsPerPageOptions]="[5, 10, 20]">
+    <ng-template #header>
+      <tr>
+        <th pSortableColumn="pseudo" style="width:20%">
+          <div class="flex items-center gap-2">
+            Pseudo
+            <p-sortIcon field="pseudo" />
+          </div>
+        </th>
+        <th pSortableColumn="firstName" style="width:20%">
+          <div class="flex items-center gap-2">
+            First Name
+            <p-sortIcon field="firstName" />
+          </div>
+        </th>
+        <th pSortableColumn="lastName" style="width:20%">
+          <div class="flex items-center gap-2">
+            Last Name
+            <p-sortIcon field="lastName" />
+          </div>
+        </th>
+        <th pSortableColumn="email" style="width:20%">
+          <div class="flex items-center gap-2">
+            Email
+            <p-sortIcon field="email" />
+          </div>
+        </th>
+        <th pSortableColumn="elo" style="width:20%">
+          <div class="flex items-center gap-2">
+            Elo
+            <p-sortIcon field="elo" />
+          </div>
+        </th>
+        <th pSortableColumn="role" style="width:20%">
+          <div class="flex items-center gap-2">
+            Role
+            <p-sortIcon field="role" />
+          </div>
+        </th>
+        <th style="width:20%">
+          Password
+        </th>
+        <th style="width:20%">
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-user>
+      <tr>
+        <td>{{ user.pseudo }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.elo }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.email }}</td>
+        <td>*********</td>
+        <td>
+          <p-menu #actions [model]="items" [popup]="true" appendTo="body" />
+          <p-button
+            (onClick)="actions.toggle($event)"
+            icon="pi pi-cog"
+            rounded
+          />
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="8">
+          <div class="flex flex-col items-center justify-center p-6">
+            <span class="text-xl">No user found</span>
+            <p class="text-sm mt-2 mb-2">Create a new user to get started</p>
+            <p-button icon="pi pi-plus" label="Add User" (onClick)="addUser()"></p-button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
