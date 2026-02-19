@@ -1,0 +1,11 @@
+<main class="flex flex-col p-6 min-h-screen">
+  <div class="flex flex-row justify-between gap-4 mb-6">
+    <p class="text-3xl font-bold">Decks Manager</p>
+
+    <decks-manager-actions/>
+  </div>
+
+  <decks-manager-grid [decks]="(decks$ | async) || []" [loading]="(loading$ | async) || false"/>
+</main>
+
+<p-toast position="bottom-right"/>
