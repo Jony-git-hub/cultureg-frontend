@@ -24,7 +24,6 @@ export class MenuComponent implements OnInit {
   register = { label: 'Register', icon: 'pi pi-user', route: '/register' };
 
   play = { label: 'Play', icon: 'pi pi-play', route: '/play' };
-
   decksManager = { label: 'Decks Manager', icon: 'pi pi-database', route: '/decks-manager' };
 
 
@@ -37,6 +36,13 @@ export class MenuComponent implements OnInit {
       }
     },
     { separator: true },
+    {
+      label: 'Decks Manager',
+      icon: 'pi pi-users',
+      command: () => {
+        this.router.navigate(['/admin-decks-manager']);
+      }
+    },
   ];
 
   settings = { label: 'Settings', icon: 'pi pi-settings', route: '/settings' };

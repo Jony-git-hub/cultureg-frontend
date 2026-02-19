@@ -2,7 +2,6 @@ import {createReducer, on} from '@ngrx/store';
 import { AdminUsersManagerActions } from './admin-users-manager.actions';
 import {initialAdminUsersManagerState} from './admin-users-manager.state';
 
-
 export const adminUsersManagerReducer = createReducer(
   initialAdminUsersManagerState,
 

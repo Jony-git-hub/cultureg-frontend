@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import {FormsModule} from '@angular/forms';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Checkbox} from 'primeng/checkbox';
 import {InputText} from 'primeng/inputtext';
 import {ButtonDirective, ButtonIcon, ButtonLabel} from 'primeng/button';
@@ -16,12 +16,24 @@ import {RouterLink} from '@angular/router';
     ButtonIcon,
     ButtonLabel,
     Card,
-    RouterLink
+    RouterLink,
+    ReactiveFormsModule
   ],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
-export class LoginPage {
-  protected remember: boolean = false;
+export class LoginPage implements OnInit {
+  protected form!: FormGroup;
 
+  constructor(
+    private formBuilder: FormBuilder,
+  ) {}
+
+  ngOnInit() {
+    this.form = this.formBuilder.group({
+      email: ['', Validators.required],
+      password: ['', Validators.required],
+      remember: [false, Validators.required],
+    })
+  }
 }

@@ -4,6 +4,7 @@ import {LoginPage} from './features/login/page/login';
 import {RegisterPage} from './features/register/page/register';
 import {AdminUsersManagerPage} from './features/admin-users-manager/page/admin-users-manager';
 import {DecksManager} from './features/decks-manager/page/decks-manager';
+import {AdminDecksManagerPage} from './features/admin-decks-manager/page/admin-decks-manager';
 
 export const routes: Routes = [
   { path: '', component: HomePage },
@@ -17,6 +18,7 @@ export const routes: Routes = [
 
   //ADMIN
   { path: 'admin-users-manager', component: AdminUsersManagerPage },
+  { path: 'admin-decks-manager', component: AdminDecksManagerPage },
 
 
 ];
