@@ -9,6 +9,16 @@ export const AdminDecksManagerSelectors = {
     state => state.decks
   ),
 
+  themes: createSelector(
+    selectAdminDecksManagerState,
+    state => state.themes
+  ),
+
+  languages: createSelector(
+    selectAdminDecksManagerState,
+    state => state.languages
+  ),
+
   loading: createSelector(
     selectAdminDecksManagerState,
     state => state.loading

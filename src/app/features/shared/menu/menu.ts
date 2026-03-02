@@ -5,6 +5,15 @@ import {Router, RouterLink} from '@angular/router';
 import {Tooltip} from 'primeng/tooltip';
 import {Divider} from 'primeng/divider';
 import {Menu} from 'primeng/menu';
+import {
+  ADMIN_ICON,
+  DECK_ICON,
+  HOME_ICON, LANGUAGE_ICON,
+  MARKET_PLACE_ICON,
+  PLAY_ICON,
+  THEME_ICON,
+  USER_ICON
+} from '../../../core/icon/icon.constants';
 
 @Component({
   selector: 'shared-menu',
@@ -19,37 +28,48 @@ import {Menu} from 'primeng/menu';
   styleUrl: './menu.css',
 })
 export class MenuComponent implements OnInit {
-  home = { label: 'Home', icon: 'pi pi-home', route: '/' };
-  login = { label: 'Login', icon: 'pi pi-user', route: '/login' };
-  register = { label: 'Register', icon: 'pi pi-user', route: '/register' };
+  home = { label: 'Home', icon: HOME_ICON, route: '/' };
+  login = { label: 'Login', icon: USER_ICON, route: '/login' };
+  register = { label: 'Register', icon: USER_ICON, route: '/register' };
 
-  play = { label: 'Play', icon: 'pi pi-play', route: '/play' };
-  decksManager = { label: 'Decks Manager', icon: 'pi pi-database', route: '/decks-manager' };
+  play = { label: 'Play', icon: PLAY_ICON, route: '/play' };
+  decksManager = { label: 'Decks Manager', icon: DECK_ICON, route: '/decks-manager' };
+  marketPlace = { label: 'Market Place', icon: MARKET_PLACE_ICON, route: '/market-place' };
 
 
   adminItems = [
     {
       label: 'Users Manager',
-      icon: 'pi pi-users',
+      icon: USER_ICON,
       command: () => {
         this.router.navigate(['/admin-users-manager']);
       }
     },
     { separator: true },
     {
+      label: 'Languages Manager',
+      icon: LANGUAGE_ICON,
+      command: () => {
+        this.router.navigate(['/admin-languages-manager']);
+      }
+    },
+    { separator: true },
+    {
+      label: 'Themes Manager',
+      icon: THEME_ICON,
+      command: () => {
+        this.router.navigate(['/admin-themes-manager']);
+      }
+    },
+    { separator: true },
+    {
       label: 'Decks Manager',
-      icon: 'pi pi-users',
+      icon: DECK_ICON,
       command: () => {
         this.router.navigate(['/admin-decks-manager']);
       }
     },
   ];
-
-  settings = { label: 'Settings', icon: 'pi pi-settings', route: '/settings' };
-  chatBot: { label: string, icon: string, route: string }[] = [];
-
-
-
   items: MegaMenuItem[] | undefined;
   isLoggedIn: boolean = false;
   constructor(
@@ -71,6 +91,11 @@ export class MenuComponent implements OnInit {
   }
 
   protected isAdminRouteActive() {
-    return this.router.isActive('/admin-users-manager', true) /*|| this.router.isActive('/next', true)*/
+    return this.router.isActive('/admin-users-manager', true) ||
+      this.router.isActive('/admin-languages-manager', true) ||
+      this.router.isActive('/admin-themes-manager', true) ||
+      this.router.isActive('/admin-decks-manager', true)
   }
+
+  protected readonly ADMIN_ICON = ADMIN_ICON;
 }

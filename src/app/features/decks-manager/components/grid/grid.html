@@ -1,7 +1,7 @@
-<div class="flex flex-col gap-8">
+<div class="flex flex-col gap-8 hidden md:block">
   <div class="flex flex-col gap-2">
     <p class="text-lg">Created Decks</p>
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-5 gap-4">
       @if (decks.length > 0) {
         @for (deck of decks; track deck.id) {
           <decks-manager-grid-item [deck]="deck"/>
@@ -12,7 +12,7 @@
 
   <div class="flex flex-col gap-2">
     <p class="text-lg">Liked Decks</p>
-    <div class="grid grid-cols-4 gap-4">
+    <div class="grid grid-cols-5 gap-4">
       @if (decks.length > 0) {
         @for (deck of decks; track deck.id) {
           <decks-manager-grid-item [deck]="deck"/>
@@ -20,5 +20,10 @@
       }
     </div>
   </div>
+
+</div>
+
+
+<div class="block md:hidden">
 
 </div>

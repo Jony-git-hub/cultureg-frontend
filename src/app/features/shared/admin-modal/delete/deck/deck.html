@@ -1,0 +1,7 @@
+<p-dialog header="Delete Deck" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }" (onHide)="cancel()">
+  <span class="p-text-secondary block mb-8">Deleting this deck cannot be undone. Are you sure you want to proceed?</span>
+  <div class="flex justify-between gap-2">
+    <p-button [icon]="CANCEL_ICON" label="Cancel" severity="secondary" (onClick)="cancel()" />
+    <p-button [icon]="CONFIRM_ICON" iconPos="right" label="Delete" severity="danger" (onClick)="confirm()" />
+  </div>
+</p-dialog>

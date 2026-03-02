@@ -5,6 +5,7 @@ import {MenuItem, MenuItemCommandEvent} from 'primeng/api';
 import {Store} from '@ngrx/store';
 import {AdminUsersManagerState} from '../../store/admin-users-manager.state';
 import {AdminUsersManagerActions} from '../../store/admin-users-manager.actions';
+import {ADD_ICON, REFRESH_ICON, SETTINGS_ICON} from '../../../../core/icon/icon.constants';
 
 @Component({
   selector: 'admin-users-manager-actions',
@@ -29,14 +30,14 @@ export class Actions implements OnInit {
         items: [
           {
             label: 'Add',
-            icon: 'pi pi-plus',
+            icon: ADD_ICON,
             command:()=> {
             }
           },
           { separator: true },
           {
             label: 'Refresh',
-            icon: 'pi pi-refresh',
+            icon: REFRESH_ICON,
             command:()=> {
               this.store.dispatch(AdminUsersManagerActions.loadUsers())
             }
@@ -45,4 +46,6 @@ export class Actions implements OnInit {
       }
     ];
   }
+
+  protected readonly SETTINGS_ICON = SETTINGS_ICON;
 }

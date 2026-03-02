@@ -5,6 +5,7 @@ import {InputText} from 'primeng/inputtext';
 import {ButtonDirective, ButtonIcon, ButtonLabel} from 'primeng/button';
 import {Card} from 'primeng/card';
 import {RouterLink} from '@angular/router';
+import {USER_ICON} from '../../../core/icon/icon.constants';
 
 @Component({
   selector: 'app-login',
@@ -36,4 +37,6 @@ export class LoginPage implements OnInit {
       remember: [false, Validators.required],
     })
   }
+
+  protected readonly USER_ICON = USER_ICON;
 }

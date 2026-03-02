@@ -15,8 +15,8 @@ export class DeckApi {
     private config: Config
   ) {}
 
-  add(payload: Partial<Deck>) {
-    return this.http.post<any>(`${this.config.apiUrl}${this.path}`, payload)
+  add(payload: Deck) {
+    return this.http.post<ApiResponse<Deck>>(`${this.config.apiUrl}${this.path}`, payload)
   }
 
   getAll(){
@@ -30,11 +30,11 @@ export class DeckApi {
     );
   }
 
-  updateById(id: number, payload: any) {
-    return this.http.put<any>(`${this.config.apiUrl}${this.path}/${id}`, payload)
+  updateById(id: number, payload: Deck) {
+    return this.http.put<ApiResponse<Deck>>(`${this.config.apiUrl}${this.path}/${id}`, payload)
   }
 
   deleteById(id: number) {
-    return this.http.delete<any>(`${this.config.apiUrl}${this.path}/${id}`)
+    return this.http.delete<ApiResponse<Deck>>(`${this.config.apiUrl}${this.path}/${id}`)
   }
 }

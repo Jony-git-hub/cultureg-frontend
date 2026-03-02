@@ -1,1 +1,83 @@
-<p>table works!</p>
+<p-card>
+  <p-table
+    [value]="decks"
+    [loading]="loading"
+    [paginator]="true"
+    [rows]="5"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    [rowsPerPageOptions]="[5, 10, 20]">
+    <ng-template #header>
+      <tr>
+        <th pSortableColumn="name" style="width:15%">
+          <div class="flex items-center gap-2">
+            Name
+            <p-sortIcon field="name" />
+          </div>
+        </th>
+        <th pSortableColumn="theme.name" style="width:15%">
+          <div class="flex items-center gap-2">
+            Theme
+            <p-sortIcon field="theme.name" />
+          </div>
+        </th>
+        <th pSortableColumn="user.pseudo" style="width:15%">
+          <div class="flex items-center gap-2">
+            Creator
+            <p-sortIcon field="user.pseudo" />
+          </div>
+        </th>
+        <th pSortableColumn="timestamp" style="width:15%">
+          <div class="flex items-center gap-2">
+            Creation Time
+            <p-sortIcon field="timestamp" />
+          </div>
+        </th>
+        <th pSortableColumn="language.name" style="width:15%">
+          <div class="flex items-center gap-2">
+            Language
+            <p-sortIcon field="language.name" />
+          </div>
+        </th>
+        <th pSortableColumn="cards.length" style="width:15%">
+          <div class="flex items-center gap-2">
+            Cards Count
+            <p-sortIcon field="cards.length" />
+          </div>
+        </th>
+        <th style="width:10%">
+        </th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-deck>
+      <tr>
+        <td>{{ deck.name }}</td>
+        <td>{{ deck.theme.name }}</td>
+        <td>{{ deck.user.pseudo }}</td>
+        <td>{{ deck.timestamp }}</td>
+        <td>{{ deck.language.name }}</td>
+        <td>{{ deck.cards.length }}</td>
+        <td>
+          <div class="flex justify-end gap-2">
+            <p-button [icon]="UPDATE_ICON" outlined rounded (onClick)="updateDeck(deck)"></p-button>
+            <p-button [icon]="DELETE_ICON" outlined rounded severity="danger" (onClick)="deleteDeck(deck)"></p-button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="9">
+          <div class="flex flex-col items-center justify-center p-6">
+            <span class="text-xl">No deck found</span>
+            <p class="text-sm mt-2 mb-2">Create a new deck to get started</p>
+            <p-button [icon]="ADD_ICON" label="Add Deck" (onClick)="addDeck()"></p-button>
+          </div>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</p-card>
+
+<shared-admin-modal-create-deck (onConfirm)="confirmAddDeck($event)"></shared-admin-modal-create-deck>
+<shared-admin-modal-update-deck (onConfirm)="confirmUpdateDeck($event)"></shared-admin-modal-update-deck>
+<shared-admin-modal-delete-deck (onConfirm)="confirmDeleteDeck($event)"></shared-admin-modal-delete-deck>

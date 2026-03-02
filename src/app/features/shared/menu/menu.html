@@ -1,12 +1,24 @@
 <div class="flex flex-col rounded-r-2xl p-5 h-full justify-between border-r">
   <div class="flex flex-col items-center gap-1 w-full">
-    <p-button
-      [routerLink]="home.route"
-      pTooltip="{{ home.label }}"
-      [icon]="home.icon"
-      [text]="!isRouteActive(home.route)"
-      [outlined]="!isRouteActive(home.route)"
-    />
+      <div class="flex flex-col items-center gap-2 w-full">
+      <p-button
+        [routerLink]="home.route"
+        pTooltip="{{ home.label }}"
+        [icon]="home.icon"
+        [text]="!isRouteActive(home.route)"
+        [outlined]="!isRouteActive(home.route)"
+      />
+
+      <p-menu #admin [model]="adminItems" appendTo="body" [popup]="true" />
+      <p-button
+        (click)="admin.toggle($event)"
+        pTooltip="Admin"
+        [icon]="ADMIN_ICON"
+        [text]="!isAdminRouteActive()"
+        [outlined]="!isAdminRouteActive()"
+      />
+    </div>
+
     <p-divider/>
 
     <div class="flex flex-col items-center gap-2 w-full">
@@ -25,21 +37,18 @@
         [text]="!isRouteActive(decksManager.route)"
         [outlined]="!isRouteActive(decksManager.route)"
       />
-    </div>
 
+      <p-button
+        [routerLink]="marketPlace.route"
+        pTooltip="{{ marketPlace.label }}"
+        [icon]="marketPlace.icon"
+        [text]="!isRouteActive(marketPlace.route)"
+        [outlined]="!isRouteActive(marketPlace.route)"
+      />
+    </div>
   </div>
 
   <div class="flex flex-col items-center gap-1">
-    <p-menu #admin [model]="adminItems" appendTo="body" [popup]="true" />
-    <p-button
-      (click)="admin.toggle($event)"
-      pTooltip="Admin"
-      icon="pi pi-crown"
-      [text]="!isAdminRouteActive()"
-      [outlined]="!isAdminRouteActive()"
-    />
-
-
     <p-divider></p-divider>
     @if (isLoggedIn) {
       <p-button
@@ -54,6 +63,5 @@
         [outlined]="!isRouteActive(login.route) && !isRouteActive(register.route)"
       ></p-button>
     }
-
   </div>
 </div>
