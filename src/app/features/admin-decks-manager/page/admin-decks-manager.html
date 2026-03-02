@@ -1,11 +1,17 @@
 <main class="flex flex-col p-6 min-h-screen">
   <div class="flex flex-row justify-between gap-4 mb-6">
-    <p class="text-3xl font-bold">Users Manager</p>
+    <p class="text-3xl font-bold">Decks Manager</p>
 
-    <admin-decks-manager-actions/>
+    <admin-decks-manager-actions
+      [themes]="(themes$ | async) || []"
+      [languages]="(languages$ | async) || []"/>
   </div>
 
-  <admin-decks-manager-table/>
+  <admin-decks-manager-table
+    [decks]="(decks$ | async) || []"
+    [themes]="(themes$ | async) || []"
+    [languages]="(languages$ | async) || []"
+    [loading]="(loading$ | async) || false"/>
 </main>
 
 <p-toast position="bottom-right"></p-toast>

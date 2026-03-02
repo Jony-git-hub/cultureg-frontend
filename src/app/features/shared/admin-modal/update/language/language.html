@@ -1,0 +1,12 @@
+<p-dialog header="Update Language" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }" (onHide)="cancel()">
+  <form [formGroup]="form" class="flex flex-col gap-4 mb-4">
+    <label for="name" class="font-semibold w-24">Name*</label>
+    <input formControlName="name" pInputText id="name" class="flex-auto" />
+    <label for="code" class="font-semibold w-24">Code*</label>
+    <input formControlName="code" pInputText id="code" class="flex-auto" />
+  </form>
+  <div class="flex justify-between gap-2">
+    <p-button [icon]="CANCEL_ICON" label="Cancel" severity="secondary" (onClick)="cancel()" />
+    <p-button [icon]="CONFIRM_ICON" iconPos="right" label="Update" [disabled]="form.invalid" (onClick)="confirm()" />
+  </div>
+</p-dialog>

@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DecksManager } from './decks-manager';
+import {DecksManagerPage} from './decks-manager';
 
-describe('DecksManager', () => {
-  let component: DecksManager;
-  let fixture: ComponentFixture<DecksManager>;
+describe('DecksManagerPage', () => {
+  let component: DecksManagerPage;
+  let fixture: ComponentFixture<DecksManagerPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DecksManager]
+      imports: [DecksManagerPage]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DecksManager);
+    fixture = TestBed.createComponent(DecksManagerPage);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

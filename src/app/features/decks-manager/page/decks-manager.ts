@@ -22,7 +22,7 @@ import {AsyncPipe} from '@angular/common';
   templateUrl: './decks-manager.html',
   styleUrl: './decks-manager.css',
 })
-export class DecksManager implements OnInit {
+export class DecksManagerPage implements OnInit {
   protected decks$: Observable<Deck[]> = new Observable<Deck[]>();
   protected loading$: Observable<boolean> = new Observable<boolean>();
 

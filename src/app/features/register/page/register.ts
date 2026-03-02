@@ -6,6 +6,7 @@ import {RouterLink} from "@angular/router";
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import {HttpClient} from '@angular/common/http';
 import {UserApi} from '../../../core/user/user.api';
+import {USER_ICON} from '../../../core/icon/icon.constants';
 
 @Component({
   selector: 'app-register',
@@ -63,4 +64,6 @@ export class RegisterPage implements OnInit {
 
     }
   }
+
+  protected readonly USER_ICON = USER_ICON;
 }

@@ -1,1 +1,8 @@
-<p>actions works!</p>
+<p-menu #actions [model]="items" [popup]="true" appendTo="body" />
+<p-button
+  (onClick)="actions.toggle($event)"
+  icon="fa-solid fa-gear"
+  rounded
+/>
+
+<shared-admin-modal-create-deck (onConfirm)="confirmAddDeck($event)"></shared-admin-modal-create-deck>

@@ -1,6 +1,6 @@
 <p-menu #actions [model]="items" [popup]="true" appendTo="body" />
 <p-button
   (onClick)="actions.toggle($event)"
-  icon="pi pi-cog"
+  [icon]="SETTINGS_ICON"
   rounded
 />

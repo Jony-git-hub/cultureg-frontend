@@ -1,0 +1,6 @@
+{
+  "redirectUri": "http://localhost:4200",
+  "apiUrl": "http://localhost:3000",
+  "appName": "Owlympiad",
+  "version": "0.0.1"
+}

@@ -5,9 +5,7 @@ import {catchError} from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class Config {
-  private config: any = {
-    apiUrl: 'http://localhost:3000',
-  };
+  private config: any = {};
   public loaded = false;
 
   setConfig(config: any) {

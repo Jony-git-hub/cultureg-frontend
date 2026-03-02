@@ -39,6 +39,8 @@ testem.log
 /typings
 __screenshots__/
 
+src/assets/config.json
+
 # System files
 .DS_Store
 Thumbs.db

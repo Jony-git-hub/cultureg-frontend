@@ -2,13 +2,11 @@ import {Component, Input, OnInit} from '@angular/core';
 import {TableModule} from 'primeng/table';
 import {Button} from 'primeng/button';
 import {FormsModule} from '@angular/forms';
-import {AsyncPipe} from '@angular/common';
 import {User} from '../../../../core/user/user.model';
-import {Store} from '@ngrx/store';
-import {AdminUsersManagerPage} from '../../page/admin-users-manager';
 import {Card} from 'primeng/card';
 import {Menu} from 'primeng/menu';
 import {MenuItem} from 'primeng/api';
+import {ADD_ICON, DELETE_ICON, SETTINGS_ICON, UPDATE_ICON} from '../../../../core/icon/icon.constants';
 
 @Component({
   selector: 'admin-users-manager-table',
@@ -16,7 +14,6 @@ import {MenuItem} from 'primeng/api';
     TableModule,
     Button,
     FormsModule,
-    AsyncPipe,
     Card,
     Menu
   ],
@@ -27,25 +24,20 @@ export class Table implements OnInit {
   @Input() users: User[] = [];
   @Input() loading: boolean = false;
 
-
   protected items: MenuItem[] = [];
-
-  constructor(
-    private store: Store<AdminUsersManagerPage>,
-  ) {}
 
   ngOnInit() {
     this.items = [
       {
         label: 'Edit',
-        icon: 'pi pi-pencil',
+        icon: UPDATE_ICON,
         command:()=> {
         }
       },
       { separator: true },
       {
         label: 'Delete',
-        icon: 'pi pi-trash',
+        icon: DELETE_ICON,
         command:()=> {
         }
       },
@@ -55,4 +47,7 @@ export class Table implements OnInit {
   protected addUser() {
 
   }
+
+  protected readonly SETTINGS_ICON = SETTINGS_ICON;
+  protected readonly ADD_ICON = ADD_ICON;
 }
